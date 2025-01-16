@@ -79,7 +79,7 @@ const MovieDetail = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white pb-4">
-      <div className="min-h-screen bg-gray-800 text-white p-6 w-1/2 mx-auto ">
+      <div className="min-h-screen bg-gray-800 text-white p-6 w-full  mx-auto ">
         <div className="flex flex-col md:flex-row items-start mt-12">
           <img
             src={movie.poster_url}
