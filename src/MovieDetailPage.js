@@ -79,7 +79,7 @@ const MovieDetail = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 text-white pb-4">
-      <div className="min-h-screen bg-gray-800 text-white p-6 w-full  mx-auto ">
+      <div className="min-h-screen bg-gray-800 text-white p-6 w-full md:w-3/4 mx-auto ">
         <div className="flex flex-col md:flex-row items-start mt-12">
           <img
             src={movie.poster_url}
@@ -128,7 +128,7 @@ const MovieDetail = () => {
         {!hasSingleEpisode && (
           <>
             <h2 className="text-2xl font-semibold mt-6 mb-2">Chọn tập phim</h2>
-            <div className="grid grid-cols-5 gap-2 mt-8">
+            <div className="grid grid-cols-5 md:grid-cols-10 gap-2 mt-8">
               {[...Array(parseInt(movie.episode_total))].map((_, index) => (
                 <button
                   key={index}
