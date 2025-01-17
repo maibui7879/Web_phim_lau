@@ -109,7 +109,7 @@ const Header = () => {
               <div className="flex items-center border border-gray-500 rounded-lg px-2 ">
                 <input
                   type="text"
-                  className="bg-gray-800 text-white px-2 py-1 outline-none w-3/4"
+                  className="bg-gray-800 text-white px-2 py-1 outline-none w-5/6"
                   placeholder="Search..."
                   value={searchKeyword}
                   onChange={(e) => setSearchKeyword(e.target.value)}
