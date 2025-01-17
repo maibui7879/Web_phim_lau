@@ -106,16 +106,16 @@ const Header = () => {
                   {label}
                 </Link>
               ))}
-              <div className="flex items-center border border-gray-500 rounded-lg px-2 w-1/2">
+              <div className="flex items-center border border-gray-500 rounded-lg px-2 ">
                 <input
                   type="text"
-                  className="bg-gray-800 text-white px-2 py-1 outline-none"
+                  className="bg-gray-800 text-white px-2 py-1 outline-none w-3/4"
                   placeholder="Search..."
                   value={searchKeyword}
                   onChange={(e) => setSearchKeyword(e.target.value)}
                 />
                 <button
-                  className="text-red-500 hover:text-white"
+                  className=" bg-gray-800 text-red-500 hover:text-white"
                   onClick={() => {
                     handleSearch();
                     toggleSidebar();
