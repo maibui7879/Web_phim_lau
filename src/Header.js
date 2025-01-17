@@ -115,7 +115,7 @@ const Header = () => {
                   onChange={(e) => setSearchKeyword(e.target.value)}
                 />
                 <button
-                  className="text-red-500 hover:text-white pr-4"
+                  className="text-red-500 hover:text-white"
                   onClick={() => {
                     handleSearch();
                     toggleSidebar();
