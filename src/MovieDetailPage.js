@@ -117,7 +117,7 @@ const MovieDetail = () => {
               src={movie.episodes[0].server_data[0].link_embed}
               frameBorder="0"
               width="100%"
-              height="500px"
+              height="auto"
               title="Episode Video"
               allowFullScreen
             />
