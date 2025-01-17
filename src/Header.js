@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { FaHome, FaFilm, FaClock, FaTv, FaChild, FaBroadcastTower, FaBars, FaArrowLeft } from 'react-icons/fa';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { FaHome, FaFilm, FaClock, FaTv, FaChild, FaBroadcastTower, FaBars, FaArrowLeft, FaSearch } from 'react-icons/fa';
 
 const Header = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [searchKeyword, setSearchKeyword] = useState('');
   const location = useLocation();
+  const navigate = useNavigate();
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const handleSearch = () => {
+    if (searchKeyword.trim()) {
+      navigate(`/search?keyword=${encodeURIComponent(searchKeyword)}`);
+    }
   };
 
   const navLinks = [
@@ -36,19 +44,36 @@ const Header = () => {
               BERO<span className="text-red-500">FLIX</span>
             </Link>
           </h1>
+
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-4">
+          <nav className="hidden md:flex space-x-4 items-center">
             {navLinks.map(({ path, label, icon }) => (
               <Link
                 key={path}
                 to={path}
-                className={`flex items-center px-4 py-2 ${getLinkClass(path)}`}
+                className={`flex items-center px-2 py-2 ${getLinkClass(path)}`}
               >
                 {icon}
                 {label}
               </Link>
             ))}
+            <div className="flex items-center border border-gray-500 rounded-lg px-2">
+              <input
+                type="text"
+                className="bg-gray-800 text-white px-2 py-1 outline-none"
+                placeholder="Search..."
+                value={searchKeyword}
+                onChange={(e) => setSearchKeyword(e.target.value)}
+              />
+              <button
+                className="text-red-500 hover:text-white px-2"
+                onClick={handleSearch}
+              >
+                <FaSearch />
+              </button>
+            </div>
           </nav>
+
           {/* Hamburger Menu for Mobile */}
           <button
             className="md:hidden flex items-center text-white text-2xl"
@@ -81,6 +106,24 @@ const Header = () => {
                   {label}
                 </Link>
               ))}
+              <div className="flex items-center border border-gray-500 rounded-lg px-2">
+                <input
+                  type="text"
+                  className="bg-gray-800 text-white px-2 py-1 outline-none"
+                  placeholder="Search..."
+                  value={searchKeyword}
+                  onChange={(e) => setSearchKeyword(e.target.value)}
+                />
+                <button
+                  className="text-red-500 hover:text-white pr-4"
+                  onClick={() => {
+                    handleSearch();
+                    toggleSidebar();
+                  }}
+                >
+                  <FaSearch />
+                </button>
+              </div>
             </nav>
           </div>
         </div>

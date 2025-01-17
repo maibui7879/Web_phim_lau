@@ -5,10 +5,12 @@ import MovieDetail from './MovieDetailPage';
 import NewFilms from './NewFilms';
 import Header from './Header';
 import Footer from './Footer';
-import Movies from './Movies'
-import Series from './Series'
+import Movies from './Movies';
+import Series from './Series';
 import Animation from './Animation';
 import TVShows from './TVShows';
+import Search from './Search'; // Import the Search component
+
 function App() {
   return (
     <BrowserRouter>
@@ -22,6 +24,7 @@ function App() {
           <Route path="/series" element={<Series />} />
           <Route path="/animation" element={<Animation />} />
           <Route path="/tv-shows" element={<TVShows />} />
+          <Route path="/search" element={<Search />} /> {/* Add a route for search */}
         </Routes>
       </main>
       <Footer />
