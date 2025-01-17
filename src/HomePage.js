@@ -238,7 +238,18 @@ function HomePage() {
     );
   };
 
-
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-900 text-white flex justify-center items-center">
+        <div className="text-center">
+          <div className="spinner-border animate-spin inline-block w-16 h-16 border-4 rounded-full text-blue-500" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+          <p className="mt-4">Đang tải...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-900 text-white p-6 " data-aos="fade-up">
