@@ -106,7 +106,7 @@ const Header = () => {
                   {label}
                 </Link>
               ))}
-              <div className="flex items-center border border-gray-500 rounded-lg px-2">
+              <div className="flex items-center border border-gray-500 rounded-lg px-2 w-1/2">
                 <input
                   type="text"
                   className="bg-gray-800 text-white px-2 py-1 outline-none"
