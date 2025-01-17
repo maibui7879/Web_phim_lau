@@ -3,7 +3,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleDoubleLeft, faAngleRight, faAngleDoubleRight, faPlay } from '@fortawesome/free-solid-svg-icons';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 function HomePage() {
   const [movies, setMovies] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -17,6 +18,7 @@ function HomePage() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    AOS.init({ duration: 1000 });
     fetchMovies(currentPage);
     fetchPhimLe();
     fetchPhimBo();
@@ -167,7 +169,7 @@ function HomePage() {
     }
 
     return (
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center space-x-2" data-aos="fade-up">
         <button
           onClick={() => handlePageClick(1)}
           disabled={currentPage === 1}
@@ -236,21 +238,10 @@ function HomePage() {
     );
   };
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-900 text-white flex justify-center items-center">
-        <div className="text-center">
-          <div className="spinner-border animate-spin inline-block w-16 h-16 border-4 rounded-full text-blue-500" role="status">
-            <span className="sr-only">Loading...</span>
-          </div>
-          <p className="mt-4">Đang tải...</p>
-        </div>
-      </div>
-    );
-  }
+
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-6">
+    <div className="min-h-screen bg-gray-900 text-white p-6 " data-aos="fade-up">
       {renderSlider()}
       <h1 className="text-3xl font-bold mb-6">Phim Mới Cập Nhật</h1>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
@@ -272,8 +263,8 @@ function HomePage() {
         ))}
       </div>
 
-      <h1 className="text-3xl font-bold mt-12 mb-6">Phim Lẻ</h1>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+      <h1 className="text-3xl font-bold mt-12 mb-6 "data-aos="fade-up">Phim Lẻ</h1>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6" data-aos="fade-up">
         {phimLe.map((movie) => (
           <div
             key={movie._id}
@@ -291,8 +282,8 @@ function HomePage() {
           </div>
         ))}
       </div>
-      <h1 className="text-3xl font-bold mt-12 mb-6">Phim Bộ</h1>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 ">
+      <h1 className="text-3xl font-bold mt-12 mb-6" data-aos="fade-up">Phim Bộ</h1>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 " data-aos="fade-up">
         {phimBo.map((movie) => (
           <div
             key={movie._id}
@@ -310,8 +301,8 @@ function HomePage() {
           </div>
         ))}
       </div>
-      <h1 className="text-3xl font-bold mt-12 mb-6">Phim Hoạt Hình</h1>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 ">
+      <h1 className="text-3xl font-bold mt-12 mb-6" data-aos="fade-up">Phim Hoạt Hình</h1>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 " data-aos="fade-up">
         {phimHoatHinh.map((movie) => (
           <div
             key={movie._id}
@@ -329,8 +320,8 @@ function HomePage() {
           </div>
         ))}
       </div>
-      <h1 className="text-3xl font-bold mt-12 mb-6">Phim Truyền Hình</h1>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 ">
+      <h1 className="text-3xl font-bold mt-12 mb-6" data-aos="fade-up">Phim Truyền Hình</h1>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 " data-aos="fade-up">
         {phimTruyenHinh.map((movie) => (
           <div
             key={movie._id}
