@@ -111,7 +111,7 @@ const MovieDetail = () => {
 
         {/* Display iframe for single episode movies */}
         {hasSingleEpisode && movie.episodes && movie.episodes[0]?.server_data && movie.episodes[0]?.server_data[0]?.link_embed && (
-          <div className="mt-6" ref={iframeRef} style={{ position: "relative", paddingTop: "56.25%" }}>
+          <div className="mt-6" ref={iframeRef} style={{ aspectRatio: "16 / 9", width: "100%" }}>
             <h2 className="text-2xl font-bold mb-6 ml-4">Xem phim ngay:</h2>
             <iframe
               src={movie.episodes[0].server_data[0].link_embed}
